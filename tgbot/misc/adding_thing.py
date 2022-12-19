@@ -104,6 +104,7 @@ async def confirm_product(message: Message, state: FSMContext):
         db.add_product(data.get('name'), data.get('cost'), data.get('image_path'), data.get('describe'))
         await message.answer("Товар успешно добавлен", reply_markup=admin_panel)
         await state.finish()
+        os.remove("tmp.jpg")
 
 
 def register_states(dp):
